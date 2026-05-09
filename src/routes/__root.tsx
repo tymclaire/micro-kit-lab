@@ -6,16 +6,14 @@ import { SiteFooter } from "@/components/site-footer";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-paper px-4">
       <div className="max-w-md text-center">
-        <h1 className="font-display text-7xl font-bold text-gradient-sunset">404</h1>
-        <h2 className="mt-4 text-xl font-semibold">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">That circuit doesn’t connect to anything.</p>
-        <div className="mt-6">
-          <Link to="/" className="inline-flex rounded-full bg-gradient-warm px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow">
-            Back to home
-          </Link>
-        </div>
+        <div className="label-mono text-ink/60">ERROR · 404</div>
+        <h1 className="mt-2 font-display text-7xl font-black tracking-tight">Not found.</h1>
+        <p className="mt-3 text-sm text-ink/75">That page isn't part of the series.</p>
+        <Link to="/" className="label-mono mt-6 inline-flex items-center gap-2 border border-ink bg-ink px-5 py-3 text-paper hover:bg-paper hover:text-ink">
+          ← Back to PATCH
+        </Link>
       </div>
     </div>
   );

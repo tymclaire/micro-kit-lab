@@ -2,24 +2,29 @@ import { Link } from "@tanstack/react-router";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-sunset text-primary-foreground shadow-glow">
-            ✦
+    <header className="sticky top-0 z-40 border-b border-ink/20 bg-paper/90 backdrop-blur">
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
+        <Link to="/" className="flex items-center gap-3">
+          <span aria-hidden className="grid h-7 w-7 grid-cols-2 grid-rows-2 gap-[2px]">
+            <span className="bg-ink" />
+            <span className="bg-ink" />
+            <span className="bg-ink" />
+            <span className="bg-leaf" />
           </span>
-          <span>Sparkbit</span>
+          <span className="font-display text-lg font-bold tracking-tight text-ink">PATCH</span>
+          <span className="label-mono hidden text-muted-foreground sm:inline">Sensor kits for the classroom</span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
-          <Link to="/kits" className="text-muted-foreground transition hover:text-foreground" activeProps={{ className: "text-foreground" }}>Kits</Link>
-          <Link to="/tutorials" className="text-muted-foreground transition hover:text-foreground" activeProps={{ className: "text-foreground" }}>Tutorials</Link>
-          <Link to="/about" className="text-muted-foreground transition hover:text-foreground" activeProps={{ className: "text-foreground" }}>About</Link>
+          <Link to="/kits" className="text-ink/70 transition hover:text-ink" activeProps={{ className: "text-ink underline underline-offset-8" }}>Kits</Link>
+          <Link to="/tutorials" className="text-ink/70 transition hover:text-ink" activeProps={{ className: "text-ink underline underline-offset-8" }}>Tutorials</Link>
+          <Link to="/about" className="text-ink/70 transition hover:text-ink" activeProps={{ className: "text-ink underline underline-offset-8" }}>About</Link>
         </nav>
         <Link
           to="/kits"
-          className="inline-flex items-center justify-center rounded-full bg-foreground px-4 py-2 text-sm font-semibold text-background transition hover:opacity-90"
+          className="inline-flex items-center gap-2 border border-ink bg-ink px-4 py-2 text-sm font-medium text-paper transition hover:bg-paper hover:text-ink"
         >
-          Shop kits
+          <span className="label-mono">Shop</span>
+          <span aria-hidden>→</span>
         </Link>
       </div>
     </header>

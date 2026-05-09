@@ -5,10 +5,10 @@ import { KitCard } from "@/components/kit-card";
 export const Route = createFileRoute("/kits")({
   head: () => ({
     meta: [
-      { title: "All kits — Sparkbit" },
-      { name: "description", content: "Browse every Sparkbit micro:bit extension kit — smart home, plant watering, weather station and more." },
-      { property: "og:title", content: "All Sparkbit kits" },
-      { property: "og:description", content: "Hands-on micro:bit kits priced around $40, with step-by-step build guides." },
+      { title: "The series — PATCH" },
+      { name: "description", content: "Every PATCH sensor kit: P—01 Plant Watering, P—02 Smart Home, P—03 Weather Station. Built for the BBC micro:bit." },
+      { property: "og:title", content: "PATCH · The series" },
+      { property: "og:description", content: "Three classroom sensor kits for the BBC micro:bit." },
     ],
   }),
   component: KitsPage,
@@ -16,16 +16,22 @@ export const Route = createFileRoute("/kits")({
 
 function KitsPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
-      <header className="max-w-2xl">
-        <span className="text-sm font-semibold uppercase tracking-wider text-primary">The kits</span>
-        <h1 className="mt-2 font-display text-4xl font-extrabold md:text-5xl">
-          Every kit you can build today
+    <div className="mx-auto max-w-[1200px] px-6 pb-16 pt-6">
+      <div className="flex items-center justify-between border-b border-ink/15 pb-3">
+        <span className="label-mono text-ink">PATCH · CATALOG</span>
+        <span className="label-mono text-ink/60">CAT / 01</span>
+      </div>
+
+      <header className="mt-12 max-w-2xl">
+        <div className="label-mono text-ink/60">The series</div>
+        <h1 className="mt-3 font-display text-5xl font-black leading-[1] tracking-tight md:text-6xl">
+          Every kit you can teach today.
         </h1>
-        <p className="mt-3 text-muted-foreground">
-          Three starter sets, all built around the micro:bit V2. Around $40 each, with everything you need in the box.
+        <p className="mt-5 text-base text-ink/80">
+          Three sets, all built around the BBC micro:bit V2. Around $40 each, with the whole part list printed on the panel.
         </p>
       </header>
+
       <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {kits.map((kit) => (
           <KitCard key={kit.id} kit={kit} />
