@@ -1,15 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "@/assets/hero-kits.jpg";
+import heroImg from "@/assets/patch-hero.jpg";
 import { kits } from "@/data/kits";
 import { KitCard } from "@/components/kit-card";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sparkbit — Smart electronics kits for curious kids" },
-      { name: "description", content: "micro:bit extension kits to build a smart home, water a plant, or track the weather. Designed for students, teachers and parents." },
-      { property: "og:title", content: "Sparkbit — Smart electronics kits" },
-      { property: "og:description", content: "Hands-on micro:bit kits with step-by-step build guides." },
+      { title: "PATCH — Sensor kits for the classroom" },
+      { name: "description", content: "PATCH makes plainspoken sensor kits for the BBC micro:bit. Plant watering, smart home, weather — built for a 40-minute lesson." },
+      { property: "og:title", content: "PATCH — Sensor kits for the classroom" },
+      { property: "og:description", content: "Sensor kits for the BBC micro:bit. Built for a 40-minute lesson. No soldering." },
     ],
   }),
   component: HomePage,
@@ -18,129 +18,155 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-soft">
-        <div className="absolute -left-32 top-1/3 -z-0 h-72 w-72 rounded-full bg-gradient-warm opacity-40 blur-3xl" aria-hidden />
-        <div className="absolute -right-24 -top-24 -z-0 h-80 w-80 rounded-full bg-gradient-cool opacity-30 blur-3xl" aria-hidden />
+      {/* HERO */}
+      <section className="border-b border-ink/20">
+        <div className="mx-auto max-w-[1200px] px-6 pt-6">
+          <div className="flex items-center justify-between border-b border-ink/15 pb-3">
+            <span className="label-mono text-ink">PATCH · BRAND SHEET</span>
+            <span className="label-mono text-ink/60">01 / 04</span>
+          </div>
+        </div>
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-2 md:py-28">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-semibold text-muted-foreground backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              New drop · micro:bit V2 kits
-            </span>
-            <h1 className="mt-5 font-display text-5xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
-              Smart electronics that
-              <span className="text-gradient-sunset"> spark real curiosity.</span>
+        <div className="mx-auto grid max-w-[1200px] gap-10 px-6 py-14 md:grid-cols-12 md:gap-8 md:py-20">
+          <div className="md:col-span-6 lg:col-span-5">
+            <div className="label-mono text-ink/60">Primary lockup</div>
+            <h1 className="mt-3 font-display text-6xl font-black leading-[0.95] tracking-tight md:text-7xl">
+              Sensor kits<br />for the<br />
+              <span className="relative inline-block">
+                classroom.
+                <span aria-hidden className="absolute -bottom-2 left-0 h-[6px] w-full bg-leaf" />
+              </span>
             </h1>
-            <p className="mt-5 max-w-lg text-lg text-muted-foreground">
-              Hands-on micro:bit extension kits for students, teachers and parents.
-              Build a smart home, water a plant, or track the weather — every kit ships with a step-by-step guide.
+            <p className="mt-6 max-w-md text-base text-ink/80">
+              PATCH builds sensor kits for the BBC micro:bit. Three ready-to-teach
+              sets. Every part named, pictured and printed on the panel. Built for
+              a 40-minute lesson, with room for four.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link to="/kits" className="inline-flex items-center gap-2 rounded-full bg-gradient-warm px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition hover:opacity-95">
-                Browse kits →
+              <Link to="/kits" className="inline-flex items-center gap-2 border border-ink bg-ink px-5 py-3 text-sm font-medium text-paper transition hover:bg-paper hover:text-ink">
+                <span className="label-mono">Shop the series</span>
+                <span aria-hidden>→</span>
               </Link>
-              <Link to="/tutorials" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold transition hover:bg-muted">
-                See how to build
+              <Link to="/tutorials" className="inline-flex items-center gap-2 border border-ink px-5 py-3 text-sm font-medium text-ink transition hover:bg-ink hover:text-paper">
+                <span className="label-mono">Read the lessons</span>
               </Link>
             </div>
-            <div className="mt-8 flex flex-wrap gap-6 text-sm text-muted-foreground">
-              <Stat n="3" label="ready-to-build kits" />
-              <Stat n="$40" label="average price" />
-              <Stat n="2 hrs" label="from box to first project" />
-            </div>
+
+            <dl className="mt-12 grid max-w-md grid-cols-3 border-t border-ink/20 pt-4 text-xs">
+              <Stat k="SETS" v="03" />
+              <Stat k="LESSON" v="40 min" />
+              <Stat k="SOLDER" v="None" />
+            </dl>
           </div>
 
-          <div className="relative">
-            <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-sunset opacity-40 blur-2xl" aria-hidden />
-            <div className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-card">
-              <img
-                src={heroImg}
-                alt="Hands assembling a colorful micro:bit electronics kit"
-                width={1536}
-                height={1024}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured kits */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <h2 className="font-display text-3xl font-bold md:text-4xl">Pick your first kit</h2>
-            <p className="mt-2 max-w-xl text-muted-foreground">
-              Each set is self-contained — open the box, follow the guide, and have something working today.
-            </p>
-          </div>
-          <Link to="/kits" className="text-sm font-semibold text-primary hover:underline">
-            View all kits →
-          </Link>
-        </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {kits.map((kit) => (
-            <KitCard key={kit.id} kit={kit} />
-          ))}
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="bg-muted/40 py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">How a Sparkbit kit works</h2>
-          <p className="mt-2 max-w-xl text-muted-foreground">
-            From unboxing to first invention, in four simple steps.
-          </p>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              { n: "01", t: "Unbox", d: "Every part labeled. No hunting for the right wire." },
-              { n: "02", t: "Plug in", d: "Snap the shield onto your micro:bit — no soldering required." },
-              { n: "03", t: "Code it", d: "Drag-and-drop blocks in MakeCode, or level up with Python." },
-              { n: "04", t: "Remix", d: "Follow our remix challenges to invent your own version." },
-            ].map((s) => (
-              <div key={s.n} className="rounded-2xl border border-border bg-background p-6 shadow-card">
-                <div className="font-display text-3xl font-bold text-gradient-sunset">{s.n}</div>
-                <h3 className="mt-3 font-display text-lg font-bold">{s.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+          <div className="md:col-span-6 lg:col-span-7">
+            <figure className="border border-ink/30 bg-card">
+              <figcaption className="flex items-center justify-between border-b border-ink/20 px-4 py-2.5">
+                <span className="label-mono text-ink">HERO RENDER · OVERHEAD · KRAFT 350 GSM</span>
+                <span className="label-mono text-ink/60">P—01 / 04A</span>
+              </figcaption>
+              <div className="relative bg-kraft-hatch">
+                <img
+                  src={heroImg}
+                  alt="Overhead photo of an assembled PATCH plant watering kit on kraft paper"
+                  width={1600}
+                  height={1024}
+                  className="aspect-[16/10] w-full object-cover mix-blend-multiply"
+                />
+                <span aria-hidden className="absolute right-4 top-4 h-3 w-3 bg-leaf" />
               </div>
+              <div className="grid grid-cols-2 gap-4 border-t border-ink/20 px-4 py-3 text-xs md:grid-cols-4">
+                <Spec k="DIM" v="250 × 180 × 60 mm" />
+                <Spec k="BOARD" v="Kraft 350 gsm" />
+                <Spec k="SPOT" v="Leaf green" />
+                <Spec k="VIEW" v="22° / 12°" />
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* PALETTE / VOICE — three columns */}
+      <section className="border-b border-ink/20">
+        <div className="mx-auto max-w-[1200px] px-6 py-16">
+          <div className="flex items-end justify-between border-b border-ink/15 pb-4">
+            <div>
+              <div className="label-mono text-ink/60">02 / Voice</div>
+              <h2 className="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">
+                Plainspoken. Particular. Patient.
+              </h2>
+            </div>
+            <span className="label-mono hidden text-ink/60 md:block">A house style</span>
+          </div>
+
+          <div className="mt-8 grid gap-px bg-ink/15 md:grid-cols-3">
+            <Pillar n="01" t="Plainspoken" body="Tell teachers what's in the box and what it does. No marketing fluff." />
+            <Pillar n="02" t="Particular" body="Specs are part of the design. Quantities, lengths, voltages — printed on the panel." />
+            <Pillar n="03" t="Patient" body="Built for a 40-minute class period. Every part is named and pictured." />
+          </div>
+        </div>
+      </section>
+
+      {/* KITS */}
+      <section className="border-b border-ink/20">
+        <div className="mx-auto max-w-[1200px] px-6 py-16">
+          <div className="flex items-end justify-between border-b border-ink/15 pb-4">
+            <div>
+              <div className="label-mono text-ink/60">03 / The series</div>
+              <h2 className="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">
+                Three kits, all about $40.
+              </h2>
+            </div>
+            <Link to="/kits" className="label-mono hidden text-ink hover:underline md:inline-block">
+              View all kits →
+            </Link>
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {kits.map((k) => (
+              <KitCard key={k.id} kit={k} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* For teachers/parents */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid gap-10 md:grid-cols-2">
-          <Audience
-            title="For teachers"
-            body="Lesson-ready packs aligned to STEM standards. Free classroom guide and slides included with every order of 10+."
-            cta="See classroom plans"
-          />
-          <Audience
-            title="For parents"
-            body="A screen-time activity that actually creates something. Recommended ages 9+, with a grown-up guide so you can build together."
-            cta="Browse family kits"
-          />
+      {/* AUDIENCES */}
+      <section className="border-b border-ink/20">
+        <div className="mx-auto max-w-[1200px] px-6 py-16">
+          <div className="flex items-end justify-between border-b border-ink/15 pb-4">
+            <div>
+              <div className="label-mono text-ink/60">04 / Who it's for</div>
+              <h2 className="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">
+                Students, teachers, parents.
+              </h2>
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <Audience tag="STUDENTS" title="Build something that works in one class." body="Open the box, follow the booklet, leave with a real device — not a pile of parts." />
+            <Audience tag="TEACHERS" title="A lesson that fits the period." body="Each kit ships with a 32-page booklet, four lessons, and bulk pricing for class sets." />
+            <Audience tag="PARENTS" title="Screen time that makes something." body="Recommended ages 9+. Build alongside your kid in an afternoon." />
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-sunset p-10 text-primary-foreground shadow-glow md:p-16">
-          <div className="relative z-10 max-w-xl">
-            <h2 className="font-display text-3xl font-bold md:text-4xl">Build something that beeps, blinks or waters itself.</h2>
-            <p className="mt-3 text-primary-foreground/90">
-              Pick a kit, follow the build guide, and see your code light up real hardware in under an afternoon.
-            </p>
-            <Link
-              to="/kits"
-              className="mt-6 inline-flex items-center rounded-full bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:opacity-90"
-            >
-              Shop the kits →
-            </Link>
+      <section>
+        <div className="mx-auto max-w-[1200px] px-6 py-20">
+          <div className="grid items-end gap-8 border border-ink bg-ink p-10 text-paper md:grid-cols-2 md:p-14">
+            <div>
+              <div className="label-mono text-paper/60">CTA</div>
+              <h2 className="mt-3 font-display text-4xl font-bold leading-tight md:text-5xl">
+                Pick a kit. Teach a class. Keep a plant alive.
+              </h2>
+            </div>
+            <div className="flex flex-col gap-4 md:items-end">
+              <Link to="/kits" className="inline-flex items-center gap-2 border border-paper bg-paper px-6 py-3 text-sm font-medium text-ink transition hover:bg-ink hover:text-paper">
+                <span className="label-mono">Shop the series</span>
+                <span aria-hidden>→</span>
+              </Link>
+              <span className="label-mono text-paper/60">Free shipping over $75 · Bulk pricing for class sets</span>
+            </div>
           </div>
         </div>
       </section>
@@ -148,23 +174,43 @@ function HomePage() {
   );
 }
 
-function Stat({ n, label }: { n: string; label: string }) {
+function Stat({ k, v }: { k: string; v: string }) {
   return (
     <div>
-      <div className="font-display text-2xl font-bold text-foreground">{n}</div>
-      <div className="text-xs uppercase tracking-wider">{label}</div>
+      <dt className="label-mono text-ink/60">{k}</dt>
+      <dd className="font-mono mt-1 text-sm text-ink">{v}</dd>
     </div>
   );
 }
 
-function Audience({ title, body, cta }: { title: string; body: string; cta: string }) {
+function Spec({ k, v }: { k: string; v: string }) {
   return (
-    <div className="rounded-3xl border border-border bg-card p-8 shadow-card">
-      <h3 className="font-display text-2xl font-bold">{title}</h3>
-      <p className="mt-3 text-muted-foreground">{body}</p>
-      <Link to="/about" className="mt-5 inline-flex text-sm font-semibold text-primary hover:underline">
-        {cta} →
-      </Link>
+    <div>
+      <div className="label-mono text-ink/55">{k}</div>
+      <div className="font-mono mt-1 text-xs">{v}</div>
+    </div>
+  );
+}
+
+function Pillar({ n, t, body }: { n: string; t: string; body: string }) {
+  return (
+    <div className="bg-paper p-8">
+      <div className="label-mono text-ink/60">{n}</div>
+      <h3 className="mt-3 font-display text-2xl font-bold tracking-tight">{t}</h3>
+      <p className="mt-3 text-sm text-ink/75">{body}</p>
+    </div>
+  );
+}
+
+function Audience({ tag, title, body }: { tag: string; title: string; body: string }) {
+  return (
+    <div className="border border-ink/25 bg-card p-6">
+      <div className="flex items-center gap-2">
+        <span className="h-2 w-2 bg-leaf" />
+        <span className="label-mono text-ink/70">{tag}</span>
+      </div>
+      <h3 className="mt-4 font-display text-xl font-bold leading-snug">{title}</h3>
+      <p className="mt-3 text-sm text-ink/75">{body}</p>
     </div>
   );
 }
