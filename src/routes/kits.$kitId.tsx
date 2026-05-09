@@ -115,7 +115,7 @@ function KitDetail() {
                 <div className="label-mono col-span-6 text-ink/60">ITEM</div>
                 <div className="label-mono col-span-4 text-ink/60">NOTE</div>
               </div>
-              {kit.contents.map((c, i) => (
+              {kit.contents.map((c: { qty: string; item: string; note: string }, i: number) => (
                 <div
                   key={i}
                   className={`grid grid-cols-12 px-4 py-3 text-sm ${i !== kit.contents.length - 1 ? "border-b border-ink/10" : ""}`}
@@ -137,7 +137,7 @@ function KitDetail() {
             <div className="label-mono text-ink/60">You'll build</div>
             <h2 className="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">Four lessons, four projects.</h2>
             <ol className="mt-6 grid gap-3 sm:grid-cols-2">
-              {kit.build.map((b, i) => (
+              {kit.build.map((b: string, i: number) => (
                 <li key={b} className="flex items-start gap-3 border border-ink/20 bg-paper p-4">
                   <span className="label-mono mt-1 inline-flex h-6 w-6 items-center justify-center bg-ink text-paper">
                     {String(i + 1).padStart(2, "0")}
@@ -152,7 +152,7 @@ function KitDetail() {
             <div className="label-mono text-ink/60">Specs</div>
             <h3 className="mt-2 font-display text-2xl font-bold tracking-tight">Printed on the panel.</h3>
             <dl className="mt-6 border-t border-ink/20">
-              {kit.specs.map((s) => (
+              {kit.specs.map((s: { label: string; value: string }) => (
                 <div key={s.label} className="grid grid-cols-3 border-b border-ink/15 py-3">
                   <dt className="label-mono col-span-1 text-ink/60">{s.label}</dt>
                   <dd className="font-mono col-span-2 text-sm">{s.value}</dd>
