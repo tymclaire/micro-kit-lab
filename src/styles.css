@@ -4,18 +4,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Figtree:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap");
 
 @theme inline {
-  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  /* Helvetica Neue first, with Inter as a free fallback that matches its metrics. */
+  --font-sans: "Helvetica Neue", "Inter", ui-sans-serif, system-ui, -apple-system, "Helvetica", "Arial", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Helvetica Neue", "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -36,49 +37,46 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-brand-orange: var(--brand-orange);
-  --color-brand-amber: var(--brand-amber);
-  --color-brand-pink: var(--brand-pink);
-  --color-brand-violet: var(--brand-violet);
+
+  --color-paper: var(--paper);
+  --color-kraft: var(--kraft);
+  --color-ink: var(--ink);
+  --color-leaf: var(--leaf);
+  --color-leaf-d: var(--leaf-d);
+  --color-rule: var(--rule);
 }
 
 :root {
-  --radius: 1rem;
+  --radius: 0.125rem;
 
-  /* Sunset Blaze palette */
-  --brand-orange: oklch(0.72 0.18 40);   /* #ff6b35 */
-  --brand-amber:  oklch(0.78 0.16 65);   /* #f7931e */
-  --brand-pink:   oklch(0.65 0.22 350);  /* #e84393 */
-  --brand-violet: oklch(0.55 0.22 285);  /* #6c5ce7 */
+  /* PATCH palette */
+  --paper:  oklch(0.95 0.012 80);   /* #F3EFE7 */
+  --kraft:  oklch(0.83 0.045 80);   /* #D8C5A0 */
+  --ink:    oklch(0.20 0.005 80);   /* #1A1A1A */
+  --leaf:   oklch(0.66 0.16 145);   /* fresh leaf accent */
+  --leaf-d: oklch(0.48 0.13 145);   /* deeper leaf */
+  --rule:   oklch(0.72 0.025 80);   /* hairline rule on paper */
 
-  --background: oklch(0.995 0.005 60);
-  --foreground: oklch(0.18 0.04 285);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.04 285);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.04 285);
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: oklch(0.97 0.008 80);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.97 0.008 80);
+  --popover-foreground: var(--ink);
 
-  --primary: var(--brand-orange);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.96 0.02 60);
-  --secondary-foreground: oklch(0.22 0.04 285);
-  --muted: oklch(0.96 0.015 60);
-  --muted-foreground: oklch(0.48 0.04 285);
-  --accent: oklch(0.95 0.04 350);
-  --accent-foreground: oklch(0.22 0.06 350);
-  --destructive: oklch(0.6 0.24 27);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.015 60);
-  --input: oklch(0.92 0.015 60);
-  --ring: var(--brand-orange);
-
-  --gradient-sunset: linear-gradient(135deg, var(--brand-orange) 0%, var(--brand-amber) 35%, var(--brand-pink) 70%, var(--brand-violet) 100%);
-  --gradient-warm: linear-gradient(135deg, var(--brand-orange), var(--brand-pink));
-  --gradient-cool: linear-gradient(135deg, var(--brand-pink), var(--brand-violet));
-  --gradient-soft: linear-gradient(180deg, oklch(0.99 0.01 60), oklch(0.97 0.04 30));
-
-  --shadow-glow: 0 20px 60px -20px color-mix(in oklab, var(--brand-orange) 45%, transparent);
-  --shadow-card: 0 10px 30px -12px color-mix(in oklab, var(--brand-violet) 18%, transparent);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--kraft);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.92 0.013 80);
+  --muted-foreground: oklch(0.42 0.012 80);
+  --accent: var(--leaf);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: var(--paper);
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--ink);
 }
 
 @layer base {
@@ -96,30 +94,42 @@
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  ::selection {
+    background: var(--leaf);
+    color: var(--ink);
   }
 }
 
-@utility bg-gradient-sunset {
-  background-image: var(--gradient-sunset);
+@utility font-mono {
+  font-family: var(--font-mono);
 }
-@utility bg-gradient-warm {
-  background-image: var(--gradient-warm);
+@utility bg-paper { background-color: var(--paper); }
+@utility bg-kraft { background-color: var(--kraft); }
+@utility bg-ink { background-color: var(--ink); }
+@utility bg-leaf { background-color: var(--leaf); }
+@utility text-paper { color: var(--paper); }
+@utility text-kraft { color: var(--kraft); }
+@utility text-ink { color: var(--ink); }
+@utility text-leaf { color: var(--leaf); }
+@utility border-rule { border-color: var(--rule); }
+@utility border-ink { border-color: var(--ink); }
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
 }
-@utility bg-gradient-cool {
-  background-image: var(--gradient-cool);
-}
-@utility bg-gradient-soft {
-  background-image: var(--gradient-soft);
-}
-@utility text-gradient-sunset {
-  background-image: var(--gradient-sunset);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-@utility shadow-glow {
-  box-shadow: var(--shadow-glow);
-}
-@utility shadow-card {
-  box-shadow: var(--shadow-card);
+
+/* Diagonal kraft fill, mimicking the packaging panel hatching */
+@utility bg-kraft-hatch {
+  background-color: var(--kraft);
+  background-image: repeating-linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--ink) 6%, transparent) 0 1px,
+    transparent 1px 10px
+  );
 }
