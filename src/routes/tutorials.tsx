@@ -20,7 +20,7 @@ const steps = [
   { n: "04", t: "Remix it", d: "Try the challenge prompts at the end of each guide — turn the smart home into a smart greenhouse, etc." },
 ];
 
-export default function _noop() {}
+
 
 function TutorialsPage() {
   return (
