@@ -1,8 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getKit, kits } from "@/data/kits";
+import { getKit, kits, type Kit } from "@/data/kits";
 
 export const Route = createFileRoute("/kits/$kitId")({
-  loader: ({ params }) => {
+  loader: ({ params }): { kit: Kit } => {
     const kit = getKit(params.kitId);
     if (!kit) throw notFound();
     return { kit };
