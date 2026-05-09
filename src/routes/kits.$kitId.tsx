@@ -84,7 +84,7 @@ function KitDetail() {
         <div>
           <h2 className="font-display text-2xl font-bold">What’s in the box</h2>
           <ul className="mt-5 space-y-3">
-            {kit.includes.map((item) => (
+            {kit.includes.map((item: string) => (
               <li key={item} className="flex items-start gap-3">
                 <span className="mt-1 grid h-5 w-5 place-items-center rounded-full bg-gradient-warm text-[10px] font-bold text-primary-foreground">✓</span>
                 <span>{item}</span>
@@ -95,7 +95,7 @@ function KitDetail() {
         <div>
           <h2 className="font-display text-2xl font-bold">Projects you’ll build</h2>
           <ul className="mt-5 grid gap-3">
-            {kit.projects.map((p, i) => (
+            {kit.projects.map((p: string, i: number) => (
               <li key={p} className="rounded-2xl border border-border bg-card p-4 shadow-card">
                 <div className="text-xs font-semibold text-primary">Project {i + 1}</div>
                 <div className="mt-1 font-medium">{p}</div>
