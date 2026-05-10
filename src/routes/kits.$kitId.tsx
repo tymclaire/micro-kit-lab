@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getKit, kits, type Kit } from "@/data/kits";
+import { getKit, kits, type Kit, type Lesson } from "@/data/kits";
 
 export const Route = createFileRoute("/kits/$kitId")({
   loader: ({ params }): { kit: Kit } => {
@@ -163,6 +163,47 @@ function KitDetail() {
                 <dd className="font-mono col-span-2 text-sm">{kit.dimensions}</dd>
               </div>
             </dl>
+          </div>
+        </div>
+      </section>
+
+      {/* HOW A BUILD SESSION WORKS */}
+      <section className="border-b border-ink/20">
+        <div className="mx-auto max-w-[1200px] px-6 py-16">
+          <div className="label-mono text-ink/60">Build session</div>
+          <h2 className="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">
+            How a build session works.
+          </h2>
+          <p className="mt-3 max-w-lg text-sm text-ink/70">
+            From box to working device, in {kit.lessonLength}. Every step is in the booklet — this is the full sequence.
+          </p>
+
+          <div className="mt-10 grid gap-px border border-ink/20 bg-ink/20">
+            {kit.lessons.map((lesson: Lesson, i: number) => (
+              <div key={lesson.title} className="bg-paper">
+                {/* Lesson header */}
+                <div className="flex items-center gap-4 border-b border-ink/15 bg-card px-6 py-4">
+                  <span className="label-mono inline-flex h-7 w-14 items-center justify-center bg-ink text-paper text-xs">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex flex-1 items-baseline justify-between gap-4">
+                    <h3 className="font-display text-xl font-bold tracking-tight">{lesson.title}</h3>
+                    <span className="label-mono shrink-0 text-ink/50">{lesson.duration}</span>
+                  </div>
+                </div>
+                {/* Steps */}
+                <ol className="divide-y divide-ink/10">
+                  {lesson.steps.map((step: string, j: number) => (
+                    <li key={j} className="flex gap-4 px-6 py-4">
+                      <span className="label-mono mt-0.5 shrink-0 text-ink/40">
+                        {String(j + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-sm leading-relaxed text-ink/85">{step}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -13,6 +13,7 @@ import { Route as TutorialsRouteImport } from './routes/tutorials'
 import { Route as KitsRouteImport } from './routes/kits'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KitsIndexRouteImport } from './routes/kits.index'
 import { Route as KitsKitIdRouteImport } from './routes/kits.$kitId'
 
 const TutorialsRoute = TutorialsRouteImport.update({
@@ -35,6 +36,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KitsIndexRoute = KitsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => KitsRoute,
+} as any)
 const KitsKitIdRoute = KitsKitIdRouteImport.update({
   id: '/$kitId',
   path: '/$kitId',
@@ -47,13 +53,14 @@ export interface FileRoutesByFullPath {
   '/kits': typeof KitsRouteWithChildren
   '/tutorials': typeof TutorialsRoute
   '/kits/$kitId': typeof KitsKitIdRoute
+  '/kits/': typeof KitsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/kits': typeof KitsRouteWithChildren
   '/tutorials': typeof TutorialsRoute
   '/kits/$kitId': typeof KitsKitIdRoute
+  '/kits': typeof KitsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +69,21 @@ export interface FileRoutesById {
   '/kits': typeof KitsRouteWithChildren
   '/tutorials': typeof TutorialsRoute
   '/kits/$kitId': typeof KitsKitIdRoute
+  '/kits/': typeof KitsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/kits' | '/tutorials' | '/kits/$kitId'
+  fullPaths: '/' | '/about' | '/kits' | '/tutorials' | '/kits/$kitId' | '/kits/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/kits' | '/tutorials' | '/kits/$kitId'
-  id: '__root__' | '/' | '/about' | '/kits' | '/tutorials' | '/kits/$kitId'
+  to: '/' | '/about' | '/tutorials' | '/kits/$kitId' | '/kits'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/kits'
+    | '/tutorials'
+    | '/kits/$kitId'
+    | '/kits/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -108,6 +123,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kits/': {
+      id: '/kits/'
+      path: '/'
+      fullPath: '/kits/'
+      preLoaderRoute: typeof KitsIndexRouteImport
+      parentRoute: typeof KitsRoute
+    }
     '/kits/$kitId': {
       id: '/kits/$kitId'
       path: '/$kitId'
@@ -120,10 +142,12 @@ declare module '@tanstack/react-router' {
 
 interface KitsRouteChildren {
   KitsKitIdRoute: typeof KitsKitIdRoute
+  KitsIndexRoute: typeof KitsIndexRoute
 }
 
 const KitsRouteChildren: KitsRouteChildren = {
   KitsKitIdRoute: KitsKitIdRoute,
+  KitsIndexRoute: KitsIndexRoute,
 }
 
 const KitsRouteWithChildren = KitsRoute._addFileChildren(KitsRouteChildren)
@@ -137,3 +161,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
