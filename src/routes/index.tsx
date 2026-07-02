@@ -6,10 +6,10 @@ import { KitCard } from "@/components/kit-card";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "PATCH — Sensor kits for the classroom" },
-      { name: "description", content: "PATCH makes plainspoken sensor kits for the BBC micro:bit. Plant watering, smart home, weather — built for a 40-minute lesson." },
-      { property: "og:title", content: "PATCH — Sensor kits for the classroom" },
-      { property: "og:description", content: "Sensor kits for the BBC micro:bit. Built for a 40-minute lesson. No soldering." },
+      { title: "Hack'it — Sensor kits for young makers" },
+      { name: "description", content: "Hack'it makes hands-on sensor kits for the BBC micro:bit. Plant watering, smart home, weather — build a real device in 40 minutes." },
+      { property: "og:title", content: "Hack'it — Sensor kits for young makers" },
+      { property: "og:description", content: "Sensor kits for the BBC micro:bit. Build real devices. No soldering." },
     ],
   }),
   component: HomePage,
@@ -22,7 +22,7 @@ function HomePage() {
       <section className="border-b border-ink/20">
         <div className="mx-auto max-w-[1200px] px-6 pt-6">
           <div className="flex items-center justify-between border-b border-ink/15 pb-3">
-            <span className="label-mono text-ink">PATCH · BRAND SHEET</span>
+            <span className="label-mono text-ink">HACK'IT · BRAND SHEET</span>
             <span className="label-mono text-ink/60">01 / 04</span>
           </div>
         </div>
@@ -31,16 +31,16 @@ function HomePage() {
           <div className="md:col-span-6 lg:col-span-5">
             <div className="label-mono text-ink/60">Primary lockup</div>
             <h1 className="mt-3 font-display text-6xl font-black leading-[0.95] tracking-tight md:text-7xl">
-              Sensor kits<br />for the<br />
+              Sensor kits<br />for young<br />
               <span className="relative inline-block">
-                classroom.
+                makers.
                 <span aria-hidden className="absolute -bottom-2 left-0 h-[6px] w-full bg-leaf" />
               </span>
             </h1>
             <p className="mt-6 max-w-md text-base text-ink/80">
-              PATCH builds sensor kits for the BBC micro:bit. Three ready-to-teach
-              sets. Every part named, pictured and printed on the panel. Built for
-              a 40-minute lesson, with room for four.
+              Hack'it builds sensor kits for the BBC micro:bit. Three hands-on
+              kits — open the box, wire it up, write the code, leave with a real
+              working device. Forty minutes, no soldering.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link to="/kits" className="inline-flex items-center gap-2 border border-ink bg-ink px-5 py-3 text-sm font-medium text-paper transition hover:bg-paper hover:text-ink">
@@ -68,7 +68,7 @@ function HomePage() {
               <div className="relative bg-kraft-hatch">
                 <img
                   src={heroImg}
-                  alt="Overhead photo of an assembled PATCH plant watering kit on kraft paper"
+                  alt="Overhead photo of an assembled Hack'it plant watering kit on kraft paper"
                   width={1600}
                   height={1024}
                   className="aspect-[16/10] w-full object-cover mix-blend-multiply"
@@ -93,16 +93,16 @@ function HomePage() {
             <div>
               <div className="label-mono text-ink/60">02 / Voice</div>
               <h2 className="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">
-                Plainspoken. Particular. Patient.
+                Hands-on. Inventive. Yours.
               </h2>
             </div>
             <span className="label-mono hidden text-ink/60 md:block">A house style</span>
           </div>
 
           <div className="mt-8 grid gap-px bg-ink/15 md:grid-cols-3">
-            <Pillar n="01" t="Plainspoken" body="Tell teachers what's in the box and what it does. No marketing fluff." />
-            <Pillar n="02" t="Particular" body="Specs are part of the design. Quantities, lengths, voltages — printed on the panel." />
-            <Pillar n="03" t="Patient" body="Built for a 40-minute class period. Every part is named and pictured." />
+            <Pillar n="01" t="Hands-on" body="Real parts, real circuits, real devices. No simulation, no shortcut — just the satisfaction of making something that actually works." />
+            <Pillar n="02" t="Inventive" body="Every kit leads to a working invention. Specs on the panel. Code in the booklet. Then hack it further." />
+            <Pillar n="03" t="Yours" body="The booklet gets you to working. After that, it's yours — remix it, extend it, teach it to someone else." />
           </div>
         </div>
       </section>

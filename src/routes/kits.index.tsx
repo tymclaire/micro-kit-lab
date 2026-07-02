@@ -5,9 +5,9 @@ import { KitCard } from "@/components/kit-card";
 export const Route = createFileRoute("/kits/")({
   head: () => ({
     meta: [
-      { title: "The series — PATCH" },
-      { name: "description", content: "Every PATCH sensor kit: P—01 Plant Watering, P—02 Smart Home, P—03 Weather Station. Built for the BBC micro:bit." },
-      { property: "og:title", content: "PATCH · The series" },
+      { title: "The series — Hack'it" },
+      { name: "description", content: "Every Hack'it sensor kit: P—01 Plant Watering, P—02 Smart Home, P—03 Weather Station. Built for the BBC micro:bit." },
+      { property: "og:title", content: "Hack'it · The series" },
       { property: "og:description", content: "Three classroom sensor kits for the BBC micro:bit." },
     ],
   }),
@@ -18,7 +18,7 @@ function KitsPage() {
   return (
     <div className="mx-auto max-w-[1200px] px-6 pb-16 pt-6">
       <div className="flex items-center justify-between border-b border-ink/15 pb-3">
-        <span className="label-mono text-ink">PATCH · CATALOG</span>
+        <span className="label-mono text-ink">HACK'IT · CATALOG</span>
         <span className="label-mono text-ink/60">CAT / 01</span>
       </div>
 

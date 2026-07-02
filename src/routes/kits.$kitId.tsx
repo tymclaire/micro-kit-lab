@@ -9,12 +9,12 @@ export const Route = createFileRoute("/kits/$kitId")({
   },
   head: ({ loaderData }) => {
     const k = loaderData?.kit;
-    if (!k) return { meta: [{ title: "Kit not found — PATCH" }] };
+    if (!k) return { meta: [{ title: "Kit not found — Hack'it" }] };
     return {
       meta: [
-        { title: `${k.series} · ${k.name} — PATCH` },
+        { title: `${k.series} · ${k.name} — Hack'it` },
         { name: "description", content: k.shortDesc },
-        { property: "og:title", content: `${k.series} · ${k.name} — PATCH` },
+        { property: "og:title", content: `${k.series} · ${k.name} — Hack'it` },
         { property: "og:description", content: k.shortDesc },
         { property: "og:image", content: k.image },
         { name: "twitter:image", content: k.image },

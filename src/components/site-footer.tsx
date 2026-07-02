@@ -13,10 +13,10 @@ export function SiteFooter() {
                 <span className="bg-ink" />
                 <span className="bg-leaf" />
               </span>
-              <span className="font-display text-lg font-bold">PATCH</span>
+              <span className="font-display text-lg font-bold">Hack'it</span>
             </div>
             <p className="mt-4 max-w-md text-sm text-ink/75">
-              PATCH makes sensor kits for the classroom. Plainspoken, particular, patient — every part is named, pictured and printed on the panel.
+              Hack'it makes sensor kits for young makers. Hands-on, inventive, yours — every part named, every circuit documented, every build a real invention.
             </p>
           </div>
 
@@ -33,15 +33,15 @@ export function SiteFooter() {
             <div className="label-mono text-ink/60">More</div>
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link to="/tutorials" className="hover:underline">Tutorials</Link></li>
-              <li><Link to="/about" className="hover:underline">About PATCH</Link></li>
+              <li><Link to="/about" className="hover:underline">About Hack'it</Link></li>
               <li><a href="https://makecode.microbit.org" target="_blank" rel="noreferrer" className="hover:underline">MakeCode ↗</a></li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-ink/15 pt-6 text-xs text-ink/60">
-          <div className="label-mono">© {new Date().getFullYear()} · PATCH · Sensor Kits for the Classroom</div>
-          <div className="label-mono">Designed for classrooms · Micro:bit not made by PATCH</div>
+          <div className="label-mono">© {new Date().getFullYear()} · Hack'it · Sensor Kits for Young Makers</div>
+          <div className="label-mono">Designed for young makers · Micro:bit not made by Hack'it</div>
         </div>
       </div>
     </footer>

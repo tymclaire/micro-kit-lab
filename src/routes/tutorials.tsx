@@ -4,9 +4,9 @@ import { kits } from "@/data/kits";
 export const Route = createFileRoute("/tutorials")({
   head: () => ({
     meta: [
-      { title: "Tutorials — PATCH" },
-      { name: "description", content: "Step-by-step build guides for every PATCH kit. Wiring diagrams, MakeCode and Python examples." },
-      { property: "og:title", content: "PATCH · Tutorials" },
+      { title: "Tutorials — Hack'it" },
+      { name: "description", content: "Step-by-step build guides for every Hack'it kit. Wiring diagrams, MakeCode and Python examples." },
+      { property: "og:title", content: "Hack'it · Tutorials" },
       { property: "og:description", content: "Step-by-step build guides for the BBC micro:bit, in plain language." },
     ],
   }),
@@ -26,7 +26,7 @@ function TutorialsPage() {
       <section className="border-b border-ink/20">
         <div className="mx-auto max-w-[1200px] px-6 pt-6">
           <div className="flex items-center justify-between border-b border-ink/15 pb-3">
-            <span className="label-mono">PATCH · BOOKLET</span>
+            <span className="label-mono">HACK'IT · BOOKLET</span>
             <span className="label-mono text-ink/60">06 / 06</span>
           </div>
         </div>
@@ -41,7 +41,7 @@ function TutorialsPage() {
               </span>
             </h1>
             <p className="mt-5 max-w-xl text-base text-ink/80">
-              Every PATCH kit ships with a 32-page A5 booklet, saddle-stitched.
+              Every Hack'it kit ships with a 32-page A5 booklet, saddle-stitched.
               Wiring diagrams. Numbered callouts. Sample code in MakeCode and
               Python. Ready for a 40-minute period.
             </p>

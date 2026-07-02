@@ -12,7 +12,7 @@ function NotFoundComponent() {
         <h1 className="mt-2 font-display text-7xl font-black tracking-tight">Not found.</h1>
         <p className="mt-3 text-sm text-ink/75">That page isn't part of the series.</p>
         <Link to="/" className="label-mono mt-6 inline-flex items-center gap-2 border border-ink bg-ink px-5 py-3 text-paper hover:bg-paper hover:text-ink">
-          ← Back to PATCH
+          ← Back to Hack'it
         </Link>
       </div>
     </div>

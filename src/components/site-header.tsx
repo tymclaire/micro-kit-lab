@@ -11,8 +11,8 @@ export function SiteHeader() {
             <span className="bg-ink" />
             <span className="bg-leaf" />
           </span>
-          <span className="font-display text-lg font-bold tracking-tight text-ink">PATCH</span>
-          <span className="label-mono hidden text-muted-foreground sm:inline">Sensor kits for the classroom</span>
+          <span className="font-display text-lg font-bold tracking-tight text-ink">Hack'it</span>
+          <span className="label-mono hidden text-muted-foreground sm:inline">Sensor kits for young makers</span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
           <Link to="/kits" className="text-ink/70 transition hover:text-ink" activeProps={{ className: "text-ink underline underline-offset-8" }}>Kits</Link>

@@ -3,10 +3,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — PATCH" },
-      { name: "description", content: "PATCH makes sensor kits for the classroom — plainspoken, particular, patient. For students, teachers and parents." },
-      { property: "og:title", content: "About PATCH" },
-      { property: "og:description", content: "Sensor kits for the classroom. A house style: plainspoken, particular, patient." },
+      { title: "About — Hack'it" },
+      { name: "description", content: "Hack'it makes sensor kits for young makers — hands-on, inventive, yours. For students, teachers and parents." },
+      { property: "og:title", content: "About Hack'it" },
+      { property: "og:description", content: "Sensor kits for young makers. A maker philosophy: hands-on, inventive, yours." },
     ],
   }),
   component: AboutPage,
@@ -18,7 +18,7 @@ function AboutPage() {
       <section className="border-b border-ink/20">
         <div className="mx-auto max-w-[1200px] px-6 pt-6">
           <div className="flex items-center justify-between border-b border-ink/15 pb-3">
-            <span className="label-mono">PATCH · ABOUT</span>
+            <span className="label-mono">HACK'IT · ABOUT</span>
             <span className="label-mono text-ink/60">A / 01</span>
           </div>
         </div>
@@ -27,17 +27,17 @@ function AboutPage() {
           <div className="md:col-span-7">
             <div className="label-mono text-ink/60">A house style</div>
             <h1 className="mt-3 font-display text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
-              Plainspoken.<br />Particular.<br />
+              Hands-on.<br />Inventive.<br />
               <span className="relative inline-block">
-                <span className="relative z-10">Patient.</span>
+                <span className="relative z-10">Yours.</span>
                 <span aria-hidden className="absolute -bottom-1 left-0 z-0 h-[8px] w-full bg-leaf" />
               </span>
             </h1>
             <p className="mt-6 max-w-lg text-base text-ink/80">
-              PATCH is a small studio designing sensor kits for the BBC micro:bit.
-              We make kits for classrooms — three of them so far — and we name
-              every part, print every spec on the panel, and write every booklet
-              for a 40-minute period.
+              Hack'it is a young maker studio designing sensor kits for the BBC micro:bit.
+              We build hands-on kits that turn ideas into real working devices — three of
+              them so far — and we name every part, document every circuit, and write
+              every booklet so you can build it, then hack it further.
             </p>
           </div>
 
@@ -45,7 +45,7 @@ function AboutPage() {
             <div className="border border-ink/25 bg-card">
               <div className="flex items-center justify-between border-b border-ink/20 px-4 py-2.5">
                 <span className="label-mono">PALETTE</span>
-                <span className="label-mono text-ink/60">PATCH · 01</span>
+                <span className="label-mono text-ink/60">HACK'IT · 01</span>
               </div>
               <div className="grid grid-cols-5 gap-px bg-ink/15">
                 <Swatch name="Paper" hex="#F3EFE7" bg="bg-paper" textDark />
@@ -67,7 +67,7 @@ function AboutPage() {
       <section className="border-b border-ink/20">
         <div className="mx-auto max-w-[1200px] px-6 py-16">
           <div className="flex items-end justify-between border-b border-ink/15 pb-4">
-            <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">Who PATCH is for</h2>
+            <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">Who Hack'it is for</h2>
             <span className="label-mono text-ink/60">03 audiences</span>
           </div>
           <div className="mt-8 grid gap-px bg-ink/15 md:grid-cols-3">
