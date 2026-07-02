@@ -1,17 +1,12 @@
 import { Link } from "@tanstack/react-router";
+import { Logo } from "@/components/logo";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-ink/20 bg-paper/90 backdrop-blur">
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
         <Link to="/" className="flex items-center gap-3">
-          <span aria-hidden className="grid h-7 w-7 grid-cols-2 grid-rows-2 gap-[2px]">
-            <span className="bg-ink" />
-            <span className="bg-ink" />
-            <span className="bg-ink" />
-            <span className="bg-leaf" />
-          </span>
-          <span className="font-display text-lg font-bold tracking-tight text-ink">Hack'it</span>
+          <Logo className="text-xl" />
           <span className="label-mono hidden text-muted-foreground sm:inline">Sensor kits for young makers</span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-medium md:flex">

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" width="1024" height="768">
+  <rect width="1024" height="768" fill="#D8C5A0"/>
+  <!-- hatching texture lines -->
+  <line x1="0" y1="0" x2="1024" y2="1024" stroke="#B8A880" stroke-width="1" opacity="0.3"/>
+  <line x1="100" y1="0" x2="1024" y2="924" stroke="#B8A880" stroke-width="1" opacity="0.2"/>
+  <line x1="200" y1="0" x2="1024" y2="824" stroke="#B8A880" stroke-width="1" opacity="0.2"/>
+  <line x1="300" y1="0" x2="1024" y2="724" stroke="#B8A880" stroke-width="1" opacity="0.2"/>
+  <line x1="0" y1="100" x2="924" y2="1024" stroke="#B8A880" stroke-width="1" opacity="0.2"/>
+  <line x1="0" y1="200" x2="824" y2="1024" stroke="#B8A880" stroke-width="1" opacity="0.2"/>
+  <!-- Mouse body - overhead view, mini size (narrower + shorter) -->
+  <!-- Cable -->
+  <path d="M 512 188 C 512 135 535 108 568 88" fill="none" stroke="#3A3A3A" stroke-width="7" stroke-linecap="round" opacity="0.6"/>
+  <!-- Main body shell — same proportions but 20% narrower/shorter -->
+  <path d="M 385 210 C 362 210 344 224 342 251 L 330 488 C 326 566 415 608 512 608 C 609 608 698 566 694 488 L 682 251 C 680 224 662 210 639 210 Z" fill="#F0E8D8" stroke="#1A1A1A" stroke-width="2" opacity="0.9"/>
+  <!-- Button area top edge -->
+  <path d="M 385 210 C 428 201 472 196 512 196 C 552 196 596 201 639 210" fill="none" stroke="#1A1A1A" stroke-width="2" opacity="0.5"/>
+  <!-- Center split line -->
+  <line x1="512" y1="196" x2="512" y2="348" stroke="#1A1A1A" stroke-width="1.5" opacity="0.3"/>
+  <!-- Button / palm divider curve -->
+  <path d="M 348 348 C 416 366 608 366 676 348" fill="none" stroke="#1A1A1A" stroke-width="1.5" opacity="0.2"/>
+  <!-- Scroll wheel (narrower) -->
+  <rect x="500" y="256" width="24" height="62" rx="12" fill="#C4B898" stroke="#1A1A1A" stroke-width="1.5" opacity="0.8"/>
+  <!-- Scroll wheel ridges -->
+  <line x1="500" y1="275" x2="524" y2="275" stroke="#A89878" stroke-width="1" opacity="0.6"/>
+  <line x1="500" y1="283" x2="524" y2="283" stroke="#A89878" stroke-width="1" opacity="0.6"/>
+  <line x1="500" y1="291" x2="524" y2="291" stroke="#A89878" stroke-width="1" opacity="0.6"/>
+  <line x1="500" y1="299" x2="524" y2="299" stroke="#A89878" stroke-width="1" opacity="0.6"/>
+  <!-- Leaf accent -->
+  <circle cx="960" cy="48" r="18" fill="#5CAD4A"/>
+  <line x1="960" y1="38" x2="960" y2="58" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="950" y1="48" x2="970" y2="48" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Labels -->
+  <text x="48" y="52" font-family="monospace" font-size="13" fill="#1A1A1A" opacity="0.55" font-weight="500">HACK'IT · M—02 · MECHANICAL MOUSE</text>
+  <text x="48" y="720" font-family="monospace" font-size="13" fill="#1A1A1A" opacity="0.55">MINI · 99 × 58 × 35 mm</text>
+</svg>

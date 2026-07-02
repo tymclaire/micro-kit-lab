@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Logo } from "@/components/logo";
 
 export function SiteFooter() {
   return (
@@ -6,15 +7,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1200px] px-6 py-14">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3">
-              <span aria-hidden className="grid h-7 w-7 grid-cols-2 grid-rows-2 gap-[2px]">
-                <span className="bg-ink" />
-                <span className="bg-ink" />
-                <span className="bg-ink" />
-                <span className="bg-leaf" />
-              </span>
-              <span className="font-display text-lg font-bold">Hack'it</span>
-            </div>
+            <Logo className="text-xl" />
             <p className="mt-4 max-w-md text-sm text-ink/75">
               Hack'it makes sensor kits for young makers. Hands-on, inventive, yours — every part named, every circuit documented, every build a real invention.
             </p>
