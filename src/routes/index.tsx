@@ -53,7 +53,7 @@ function HomePage() {
             </div>
 
             <dl className="mt-12 grid max-w-md grid-cols-3 border-t border-ink/20 pt-4 text-xs">
-              <Stat k="KITS" v="04" />
+              <Stat k="KITS" v="03" />
               <Stat k="FROM" v="$39" />
               <Stat k="SOLDER" v="None" />
             </dl>
@@ -114,7 +114,7 @@ function HomePage() {
             <div>
               <div className="label-mono text-ink/60">03 / The series</div>
               <h2 className="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">
-                Four kits. Build something you'll actually use.
+                Three kits. Build something you'll actually use.
               </h2>
             </div>
             <Link to="/kits" className="label-mono hidden text-ink hover:underline md:inline-block">

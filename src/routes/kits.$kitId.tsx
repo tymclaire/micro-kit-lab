@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getKit, kits, type Kit, type Lesson } from "@/data/kits";
+import { useState } from "react";
+import { getKit, kits, type Kit, type Lesson, type KitVariant } from "@/data/kits";
 
 export const Route = createFileRoute("/kits/$kitId")({
   loader: ({ params }): { kit: Kit } => {
@@ -38,6 +39,13 @@ export const Route = createFileRoute("/kits/$kitId")({
 function KitDetail() {
   const { kit } = Route.useLoaderData();
   const others = kits.filter((k) => k.id !== kit.id);
+  const [selectedVariant, setSelectedVariant] = useState<KitVariant | null>(
+    kit.variants?.[0] ?? null
+  );
+
+  const displayPrice = selectedVariant?.price ?? kit.price;
+  const displayDimensions = selectedVariant?.dimensions ?? kit.dimensions;
+  const displayLessonLength = selectedVariant?.lessonLength ?? kit.lessonLength;
 
   return (
     <div>
@@ -57,10 +65,10 @@ function KitDetail() {
             <figure className="border border-ink/30 bg-card">
               <figcaption className="flex items-center justify-between border-b border-ink/20 px-4 py-2.5">
                 <span className="label-mono">KIT NO. {kit.series}</span>
-                <span className="label-mono text-ink/60">OVERHEAD · ASSEMBLED</span>
+                <span className="label-mono text-ink/60">{kit.variants ? "4 COLOUR OPTIONS" : "OVERHEAD · ASSEMBLED"}</span>
               </figcaption>
-              <div className="relative bg-kraft-hatch">
-                <img src={kit.image} alt={kit.name} width={1024} height={1024} className="aspect-[5/4] w-full object-cover mix-blend-multiply" />
+              <div className={`relative ${kit.variants ? "bg-white" : "bg-kraft-hatch"}`}>
+                <img src={kit.image} alt={kit.name} width={1024} height={1024} className={`aspect-[5/4] w-full object-cover ${kit.variants ? "" : "mix-blend-multiply"}`} />
                 <span aria-hidden className="absolute right-4 top-4 h-3 w-3 bg-leaf" />
               </div>
             </figure>
@@ -74,16 +82,39 @@ function KitDetail() {
             <p className="mt-5 max-w-md text-base text-ink/80">{kit.shortDesc}</p>
             <p className="mt-3 max-w-md text-sm text-ink/70">{kit.longDesc}</p>
 
+            {kit.variants && (
+              <div className="mt-6">
+                <div className="label-mono mb-2 text-ink/60">SIZE</div>
+                <div className="flex gap-2">
+                  {kit.variants.map((v) => (
+                    <button
+                      key={v.name}
+                      onClick={() => setSelectedVariant(v)}
+                      className={`flex flex-col items-start border px-4 py-3 text-left transition ${
+                        selectedVariant?.name === v.name
+                          ? "border-ink bg-ink text-paper"
+                          : "border-ink/40 text-ink hover:border-ink"
+                      }`}
+                    >
+                      <span className="label-mono text-xs">{v.name}</span>
+                      <span className="font-mono mt-0.5 text-sm">${v.price}</span>
+                      <span className={`label-mono mt-1 text-[10px] ${selectedVariant?.name === v.name ? "text-paper/60" : "text-ink/50"}`}>{v.dimensions}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <dl className="mt-6 grid grid-cols-3 gap-4 border-y border-ink/20 py-4">
               <Meta k="AGES" v={kit.ages} />
-              <Meta k="LESSON" v={kit.lessonLength} />
+              <Meta k="BUILD" v={displayLessonLength} />
               <Meta k="SOLDER" v={kit.soldering} />
             </dl>
 
             <div className="mt-6 flex items-end justify-between">
               <div>
                 <div className="label-mono text-ink/60">USD</div>
-                <div className="font-display text-4xl font-black leading-none">${kit.price}</div>
+                <div className="font-display text-4xl font-black leading-none">${displayPrice}</div>
               </div>
               <button className="inline-flex items-center gap-2 border border-ink bg-ink px-5 py-3 text-sm font-medium text-paper transition hover:bg-paper hover:text-ink">
                 <span className="label-mono">Add to cart</span>
@@ -160,7 +191,7 @@ function KitDetail() {
               ))}
               <div className="grid grid-cols-3 border-b border-ink/15 py-3">
                 <dt className="label-mono col-span-1 text-ink/60">DIM</dt>
-                <dd className="font-mono col-span-2 text-sm">{kit.dimensions}</dd>
+                <dd className="font-mono col-span-2 text-sm">{displayDimensions}</dd>
               </div>
             </dl>
           </div>

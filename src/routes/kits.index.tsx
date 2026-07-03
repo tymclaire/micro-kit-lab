@@ -28,7 +28,7 @@ function KitsPage() {
           Every kit you can teach today.
         </h1>
         <p className="mt-5 text-base text-ink/80">
-          Four kits — two sensor kits for the BBC micro:bit, two wireless mice you 3D print and snap together. All under $50, no soldering.
+          Three kits — two sensor kits for the BBC micro:bit and a 3D printed wireless mouse you snap together yourself. All under $50, no soldering.
         </p>
       </header>
 

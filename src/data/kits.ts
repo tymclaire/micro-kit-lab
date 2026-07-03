@@ -1,7 +1,6 @@
 import p01 from "@/assets/patch-p01.jpg";
 import p02 from "@/assets/patch-p02.jpg";
-import m01 from "@/assets/hackit-m01.svg";
-import m02 from "@/assets/hackit-m02.svg";
+import mouseImg from "@/assets/mouse-product.jpg";
 
 export type Spec = { label: string; value: string };
 
@@ -11,23 +10,31 @@ export type Lesson = {
   steps: string[];
 };
 
+export type KitVariant = {
+  name: string;
+  price: number;
+  dimensions: string;
+  lessonLength: string;
+};
+
 export type Kit = {
   id: string;
-  series: string;          // P—01
-  name: string;            // Plant Watering
-  shortDesc: string;       // one-line plainspoken
-  longDesc: string;        // a paragraph
+  series: string;
+  name: string;
+  shortDesc: string;
+  longDesc: string;
   price: number;
   image: string;
-  status?: string;         // "IN STOCK" / "PRE-ORDER"
+  status?: string;
   ages: string;
   lessonLength: string;
   soldering: string;
   dimensions: string;
   contents: { qty: string; item: string; note: string }[];
-  build: string[];         // lesson titles (short)
-  lessons: Lesson[];       // full step-by-step instructions
+  build: string[];
+  lessons: Lesson[];
   specs: Spec[];
+  variants?: KitVariant[];
 };
 
 export const kits: Kit[] = [
@@ -231,14 +238,18 @@ export const kits: Kit[] = [
     ],
   },
   {
-    id: "3d-mouse-regular",
+    id: "3d-mouse",
     series: "M—01",
-    name: "3D Printed Mouse — Regular",
-    shortDesc: "Snap together your own wireless mouse. 3D printed housing, pre-flashed PCB, USB dongle included.",
+    name: "3D Printed Mouse",
+    shortDesc: "Snap together your own wireless mouse. 3D printed housing in your choice of colour, pre-flashed PCB, USB dongle included.",
     longDesc:
-      "Print it. Snap it. Click it. Build a full-size wireless mouse from a 3D printed housing, a custom PCB, and a USB dongle. Choose your colour, assemble in an afternoon, use it every day.",
+      "Print it. Snap it. Click it. Choose a colour, build your mouse from a 3D printed housing, a custom PCB, and a USB dongle. Available in Regular and Mini — use it every day.",
     price: 49,
-    image: m01,
+    image: mouseImg,
+    variants: [
+      { name: "Regular", price: 49, dimensions: "125 × 67 × 42 mm", lessonLength: "60 min" },
+      { name: "Mini",    price: 44, dimensions: "99 × 58 × 35 mm",  lessonLength: "45 min" },
+    ],
     status: "PRE-ORDER",
     ages: "12+",
     lessonLength: "60 min",
@@ -322,85 +333,6 @@ export const kits: Kit[] = [
       { label: "BATTERY", value: "1 × AAA · ~3 months" },
       { label: "HOUSING", value: "3D printed · swappable" },
       { label: "WEIGHT", value: "~88 g (with battery)" },
-    ],
-  },
-  {
-    id: "3d-mouse-mini",
-    series: "M—02",
-    name: "3D Printed Mouse — Mini",
-    shortDesc: "Same wireless mouse, compact size. Ideal for smaller hands or a packed bag. DPI-adjustable.",
-    longDesc:
-      "Everything in the Regular, 25% smaller. Compact 3D printed shell, same wireless PCB and dongle, plus adjustable DPI so you can dial it in for any screen size.",
-    price: 44,
-    image: m02,
-    status: "PRE-ORDER",
-    ages: "12+",
-    lessonLength: "45 min",
-    soldering: "None",
-    dimensions: "99 × 58 × 35 mm",
-    contents: [
-      { qty: "1×", item: "3D printed compact housing", note: "top shell + base, choice of colour" },
-      { qty: "1×", item: "Wireless mouse PCB", note: "pre-flashed, 2.4 GHz, DPI button" },
-      { qty: "1×", item: "USB nano dongle", note: "plug & play, 2.4 GHz" },
-      { qty: "3×", item: "Click switches", note: "left, right, middle" },
-      { qty: "1×", item: "Compact scroll encoder", note: "20-step" },
-      { qty: "1×", item: "Optical sensor module", note: "400–1600 DPI, adjustable" },
-      { qty: "1×", item: "AAA battery (×1)", note: "included" },
-      { qty: "4×", item: "M2 screws + hex key", note: "stainless" },
-      { qty: "4×", item: "PTFE glide feet", note: "pre-cut, 0.8 mm" },
-      { qty: "1×", item: "Build booklet", note: "24 pages, 3 sessions" },
-    ],
-    build: [
-      "Check your parts",
-      "Snap it together",
-      "Pair & tune",
-    ],
-    lessons: [
-      {
-        title: "Check your parts",
-        duration: "10 min",
-        steps: [
-          "Open the box and match every item to the parts list inside the front cover.",
-          "The compact top shell is shorter than the Regular — button cutouts are closer to the front edge.",
-          "Check the PCB: it has a small DPI button on the underside (cycles 400 → 800 → 1600 DPI).",
-          "Locate the USB nano dongle — it stores in the battery compartment.",
-          "Attach the four PTFE glide feet to the marked circles on the base shell before assembly.",
-        ],
-      },
-      {
-        title: "Snap it together",
-        duration: "20 min",
-        steps: [
-          "Place the compact base shell flat on your desk, open side up.",
-          "Press the three switches into their labelled slots on the PCB until each clicks in.",
-          "Drop the scroll encoder into its mount; flat edge faces the front.",
-          "Lower the PCB into the base shell, aligning the optical sensor window with the hole.",
-          "Insert the AAA battery — the LED flashes once to confirm power.",
-          "Set the top shell over the PCB and align the four screw bosses.",
-          "Insert and tighten the four M2 screws snugly with the hex key.",
-          "Flip over and check the mouse sits flat on all four feet.",
-        ],
-      },
-      {
-        title: "Pair & tune",
-        duration: "15 min",
-        steps: [
-          "Plug the USB nano dongle into your computer.",
-          "Slide the power switch to ON. The mouse pairs automatically within 5 seconds.",
-          "Test left click, right click, middle click, and scroll.",
-          "To change DPI: slide power OFF, hold the DPI button on the underside, slide power ON, release the button. The LED flashes once (400), twice (800), or three times (1600).",
-          "400 DPI: precise work on a single monitor. 800 DPI: everyday use. 1600 DPI: large multi-screen setups.",
-          "Swap the shell colour by removing the four M2 screws, lifting the top shell, and replacing it. No other disassembly needed.",
-          "Download STL and Fusion 360 source files from the Hack'it product page to print or remix your own shell.",
-        ],
-      },
-    ],
-    specs: [
-      { label: "WIRELESS", value: "2.4 GHz · ≤ 10 m range" },
-      { label: "SENSOR", value: "Optical · 400 / 800 / 1600 DPI" },
-      { label: "BATTERY", value: "1 × AAA · ~3 months" },
-      { label: "HOUSING", value: "3D printed · swappable" },
-      { label: "WEIGHT", value: "~72 g (with battery)" },
     ],
   },
 ];
