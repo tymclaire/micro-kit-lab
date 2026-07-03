@@ -14,11 +14,12 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <div className="label-mono text-ink/60">Series</div>
+            <div className="label-mono text-ink/60">Kits</div>
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link to="/kits/plant-watering" className="hover:underline">P—01 · Plant Watering</Link></li>
               <li><Link to="/kits/smart-home" className="hover:underline">P—02 · Smart Home</Link></li>
-              <li><Link to="/kits/weather-station" className="hover:underline">P—03 · Weather Station</Link></li>
+              <li><Link to="/kits/3d-mouse-regular" className="hover:underline">M—01 · 3D Mouse Regular</Link></li>
+              <li><Link to="/kits/3d-mouse-mini" className="hover:underline">M—02 · 3D Mouse Mini</Link></li>
             </ul>
           </div>
 

@@ -7,7 +7,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Hack'it — Sensor kits for young makers" },
-      { name: "description", content: "Hack'it makes hands-on sensor kits for the BBC micro:bit. Plant watering, smart home, weather — build a real device in 40 minutes." },
+      { name: "description", content: "Hack'it makes hands-on maker kits for young people. Sensor kits for the BBC micro:bit and 3D printed wireless mice — build something real." },
       { property: "og:title", content: "Hack'it — Sensor kits for young makers" },
       { property: "og:description", content: "Sensor kits for the BBC micro:bit. Build real devices. No soldering." },
     ],
@@ -38,9 +38,9 @@ function HomePage() {
               </span>
             </h1>
             <p className="mt-6 max-w-md text-base text-ink/80">
-              Hack'it builds sensor kits for the BBC micro:bit. Three hands-on
-              kits — open the box, wire it up, write the code, leave with a real
-              working device. Forty minutes, no soldering.
+              Hack'it makes hands-on maker kits. Sensor kits for the BBC
+              micro:bit. Wireless mice you 3D print and snap together yourself.
+              Open the box, build something real, keep it.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link to="/kits" className="inline-flex items-center gap-2 border border-ink bg-ink px-5 py-3 text-sm font-medium text-paper transition hover:bg-paper hover:text-ink">
@@ -53,8 +53,8 @@ function HomePage() {
             </div>
 
             <dl className="mt-12 grid max-w-md grid-cols-3 border-t border-ink/20 pt-4 text-xs">
-              <Stat k="SETS" v="03" />
-              <Stat k="LESSON" v="40 min" />
+              <Stat k="KITS" v="04" />
+              <Stat k="FROM" v="$39" />
               <Stat k="SOLDER" v="None" />
             </dl>
           </div>
@@ -114,7 +114,7 @@ function HomePage() {
             <div>
               <div className="label-mono text-ink/60">03 / The series</div>
               <h2 className="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">
-                Three kits, all about $40.
+                Four kits. Build something you'll actually use.
               </h2>
             </div>
             <Link to="/kits" className="label-mono hidden text-ink hover:underline md:inline-block">

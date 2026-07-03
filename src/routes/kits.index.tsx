@@ -28,7 +28,7 @@ function KitsPage() {
           Every kit you can teach today.
         </h1>
         <p className="mt-5 text-base text-ink/80">
-          Three sets, all built around the BBC micro:bit V2. Around $40 each, with the whole part list printed on the panel.
+          Four kits — two sensor kits for the BBC micro:bit, two wireless mice you 3D print and snap together. All under $50, no soldering.
         </p>
       </header>
 
